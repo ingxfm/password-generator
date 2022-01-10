@@ -14,33 +14,20 @@ nr_numbers = int(input(f"How many numbers would you like?\n"))
 
 #Hard Level - Order of characters randomised:
 #e.g. 4 letter, 2 symbol, 2 number = g^2jk8&P
-
-letters_index = [] #this list will hold the letters
+password_list = []
 for letteri in range(nr_letters):
-  random_index_let = random.randint(0, len(letters) - 1)
-  letters_index.append(letters[random_index_let])
-# print(letters_index)
+  password_list += random.choice(letters)  
 
-symbols_index = [] #this list will hold the symbols
 for symboli in range(nr_symbols):
-  random_index_sym = random.randint(0, len(symbols) - 1)
-  symbols_index.append(symbols[random_index_sym])
-# print(symbols_index)
+  password_list += random.choice(symbols)
 
-numbers_index = [] # this list will hold the numbers
 for numberi in range(nr_numbers):
-  random_index_num = random.randint(0, len(numbers) - 1)
-  numbers_index.append(numbers[random_index_num])
-# print(numbers_index)
+  password_list += random.choice(numbers)
 
-combined_list = letters_index + symbols_index + numbers_index # this could be avoided since a list for all 3 for loops can be used.
-#it can be done by appending values 
-# print(combined_list)
-random.shuffle(combined_list)
-# print(combined_list)
+random.shuffle(password_list)
 
-passingword = ""
+password = ""
 for item in combined_list:
-  passingword += item
+  password += item
 
-print(passingword)
+print(password)
